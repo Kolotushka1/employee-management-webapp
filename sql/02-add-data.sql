@@ -2,7 +2,7 @@
 INSERT INTO employees (first_name, last_name, email) VALUES
 ('John', 'Doe', 'john.doe@example.com'),
 ('Jane', 'Smith', 'jane.smith@example.com'),
-('Alice', 'Johnson', 'alice.johnson@example.com');
+('Alice', 'Johnson', 'alice.johnson@example.com'),
 ('Michael', 'Johnson', 'michael.johnson@example.com'),
 ('Emily', 'Brown', 'emily.brown@example.com'),
 ('William', 'Jones', 'william.jones@example.com');
@@ -21,4 +21,4 @@ INSERT INTO user (first_name, last_name, email, password) VALUES
 -- Связи пользователей с ролями
 INSERT INTO users_roles (user_id, role_id) VALUES
 (1, 1), -- John Doe - ROLE_ADMIN
-(2, 2), -- Jane Smith - ROLE_USER
+(2, 2); -- Jane Smith - ROLE_USER
