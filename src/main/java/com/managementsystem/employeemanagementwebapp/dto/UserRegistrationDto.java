@@ -1,6 +1,7 @@
 package com.managementsystem.employeemanagementwebapp.dto;
 
 public class UserRegistrationDto {
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -10,8 +11,9 @@ public class UserRegistrationDto {
 
     }
 
-    public UserRegistrationDto(String firstName, String lastName, String email, String password) {
+    public UserRegistrationDto(String id, String firstName, String lastName, String email, String password) {
         super();
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -41,5 +43,13 @@ public class UserRegistrationDto {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

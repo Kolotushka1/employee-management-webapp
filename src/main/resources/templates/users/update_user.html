@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management System</h1>
+        <hr>
+        <h2>Update Employee</h2>
+
+        <form action="#" th:action="@{/users/updateUser}" th:object="${newUser}"
+              method="POST">
+
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+            <br>
+            <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+            <br>
+            <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+            <br>
+            <input type="password" placeholder="Password" th:field="*{password}" class="form-control mb-4 col-4">
+            <br>
+<!--            <select multiple="multiple" class="form-control" th:field="*{roles}">-->
+<!--                <option th:each="role : *{allRoles}"-->
+<!--                        th:value="${role.id}"-->
+<!--                        th:text="${role.name}">-->
+<!--                </option>-->
+<!--            </select>-->
+
+            <button type="submit" class="btn btn-info col-2"> Update User</button>
+        </form>
+
+        <hr>
+
+        <a th:href = "@{/users}"> Back to User List</a>
+    </div>
+</body>
+</html>

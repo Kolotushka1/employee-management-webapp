@@ -19,3 +19,10 @@ logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type=TRACE
 
 server.port=8090
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=YOUR_EMAIL
+spring.mail.password=GMAIL_PROGRAM_PASSWORD
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true

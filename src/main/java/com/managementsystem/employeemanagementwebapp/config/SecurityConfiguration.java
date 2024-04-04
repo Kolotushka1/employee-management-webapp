@@ -3,6 +3,7 @@ package com.managementsystem.employeemanagementwebapp.config;
 import com.managementsystem.employeemanagementwebapp.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,7 +34,11 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests(configurer ->
                         configurer
                                 .requestMatchers("/registration**", "/js/**","/css/**", "/img/**").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/users/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/users/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/send-email").hasRole("ADMIN")
                                 .anyRequest().authenticated()
+
                 )
                 .formLogin(form ->
                         form

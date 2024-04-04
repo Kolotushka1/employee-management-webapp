@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Employee Management System</h1>
+    <hr>
+    <h2>Save User</h2>
+
+    <form action="#" th:action="@{/users/saveUser}" th:object="${newUser}"
+          method="POST">
+        <input type="text" th:field="*{firstName}" autocomplete="off"
+               placeholder="User First Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{lastName}" autocomplete="off"
+               placeholder="User Last Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{email}" autocomplete="off"
+               placeholder="User Email" class="form-control mb-4 col-4">
+
+        <input type="password" th:field="*{password}" autocomplete="off"
+               placeholder="User Password" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Save User</button>
+    </form>
+
+    <hr>
+
+    <a th:href = "@{/users}"> Back to User List</a>
+</div>
+</body>
+</html>

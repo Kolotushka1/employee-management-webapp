@@ -24,6 +24,9 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/users}">Users</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
                 </ul>
             </div>
@@ -69,9 +72,20 @@
             </tbody>
         </table>
 
+        <form sec:authorize="hasRole('ADMIN')" action="#" class="col-2" th:action="@{/send-email}" method="POST">
+            <div class="mb-3" style="margin-bottom: 10px;">
+                <label class="form-label" for="email">Recipient Email:</label>
+                <input class="form-control " type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-info col-2" style="margin-bottom: 10px;">Send Email</button>
+        </form>
+        <div th:if="${messageSent}">
+            <p style="color: aqua; font-size: 16px">Email sent successfully!</p>
+        </div>
+
         <div th:if = "${totalPages > 1}">
             <div class = "row col-sm-10">
-                <div class = "col-sm-2">
+                <div class = "col-sm-2" style="padding-left: 0; margin-left: 0;">
                     Total Rows: [[${totalItems}]]
                 </div>
                 <div class = "col-sm-1">
